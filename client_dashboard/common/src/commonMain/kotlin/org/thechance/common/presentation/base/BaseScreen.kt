@@ -20,8 +20,7 @@ import org.koin.mp.KoinPlatform
 interface BaseInteractionListener
 
 @Suppress("BOUNDS_NOT_ALLOWED_IF_BOUNDED_BY_TYPE_PARAMETER")
-abstract class BaseScreen<SM, E, S, I>
-    : Screen where  I : BaseInteractionListener, SM : BaseScreenModel<S, E>, SM : I {
+abstract class BaseScreen<SM, E, S, I> : Screen where  I : BaseInteractionListener, SM : BaseScreenModel<S, E>, SM : I {
 
     @Composable
     protected fun Init(screenModel: SM) {

@@ -42,7 +42,7 @@ val networkModule = module {
                     protocol = URLProtocol.WSS,
                     host = "beep-beep-api-gateway-nap2u.ondigitalocean.app/",
 //    Local         host = "192.168.1.100",
-//    Local         port = 8080
+//    Local         port = System.getenv("port").toIntOrNull() ?: 8080
                 )
                 Url(urlBuilder)
                 pingInterval = 10000

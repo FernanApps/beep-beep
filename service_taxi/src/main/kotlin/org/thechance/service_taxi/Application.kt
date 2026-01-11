@@ -6,7 +6,7 @@ import io.ktor.server.netty.Netty
 import org.thechance.service_taxi.plugins.*
 
 fun main() {
-    embeddedServer(Netty, port = 8080, host = "0.0.0.0", module = Application::module)
+    embeddedServer(Netty, port = System.getenv("port").toIntOrNull() ?: 8080, host = "0.0.0.0", module = Application::module)
         .start(wait = true)
 }
 

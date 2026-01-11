@@ -1,11 +1,13 @@
-FROM openjdk:11 as builder
+FROM openjdk:17 as builder
 
 
 COPY . .
 
+RUN sed -i 's/\r$//' gradlew && chmod +x gradlew
+
 RUN ./gradlew buildFatJar
 
-FROM openjdk:11
+FROM openjdk:17
 
 COPY --from=builder /build/libs/service_location.jar ./service_location.jar
 
